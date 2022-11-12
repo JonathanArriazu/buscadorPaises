@@ -1,0 +1,58 @@
+<div 
+    *ngIf="!pais; else divPais"
+    class="alert alert-info"
+>
+    Espere por favor...
+</div>
+
+<ng-template #divPais>
+    <div class="row">
+        <div class="col-12">
+            <h1>País: <small>{{ pais.name.common }}</small></h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h3>Bandera</h3>
+            <img [src]="pais.flags.png" class="img-thumbnail" />
+        </div>
+
+        <div class="col">
+            <h3>Información</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Población</strong> {{ pais.population | number }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Region</strong> {{ pais.region }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Capital</strong> {{ pais.capital[0] }}
+                </li>
+            </ul>
+        </div>
+
+        <h3>Traducciones</h3>
+        <div class="row">
+            <div class="col">
+                <span class="badge bg-primary mr-1">{{ pais.translations.ara.common }}</span>
+                <span class="badge bg-primary mr-1">{{ pais.translations.spa.common }}</span>
+                <span class="badge bg-primary mr-1">{{ pais.translations.fra.common }}</span>
+                <span class="badge bg-primary mr-1">{{ pais.translations.jpn.common }}</span>
+                <span class="badge bg-primary mr-1">{{ pais.translations.ita.common }}</span>
+                <span class="badge bg-primary mr-1">{{ pais.translations.bre.common }}</span>
+                <span class="badge bg-primary mr-1">{{ pais.translations.pol.common }}</span>
+                <span class="badge bg-primary mr-1">{{ pais.translations.nld.common }}</span>
+                <span class="badge bg-primary mr-1">{{ pais.translations.hun.common }}</span>
+                <span class="badge bg-primary mr-1">{{ pais.translations.rus.common }}</span>
+            </div>
+        </div>
+
+        <!-- <pre class="mt-5">
+                {{ pais | json }}
+            </pre>   //  | json: sirve para ver el objeto y que me lo imprima como un json, esto es muy util a la hora de ver la info del objeto -->  
+
+    </div>
+</ng-template>
+
