@@ -19,7 +19,7 @@ export class PaisInputComponent implements OnInit {
   constructor() { }
   
   ngOnInit() {
-    this.debouncer
+    this.debouncer //Emite el valor (en este caso 300ms) despues de que la persona dejo de escribir. Esto esta implementado en el input de por pais
       .pipe(debounceTime(300))
       .subscribe( valor => {
         this.onDebounce.emit(valor); //En lugar de valor tambien pude haber utilizado termino
